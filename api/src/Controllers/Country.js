@@ -14,24 +14,37 @@ async function getAllCountries(req, res) {
             return res.status(200).json(await search)
         } else {
 
-            const Paises= await axios.get('https://restcountries.eu/rest/v2/all')
-           
-            for(let i= 0; i< Paises.data.length; i++) {
-              await Country.findOrCreate({
-                    where: {
-                        name: Paises.data[i].name,
-                        id: Paises.data[i].alpha3Code,
-                        image: Paises.data[i].flag,
-                        continente: Paises.data[i].region,
-                        capital: Paises.data[i].capital,
-                        subregion: Paises.data[i].subregion,
-                        area: Paises.data[i].area,
-                        poblacion: Paises.data[i].population
-                    }
-                })
-            }
-            Country.findAll().then(c => res.json(c)) //REPASAR ESTA LINEA
-            
+    try {
+        
+        const Paises= await axios.get('https://restcountries.eu/rest/v2/all')
+               
+                // for(let i= 0; i< Paises.data.length; i++) {
+                    Paises.data.forEach(async c => {
+                        
+                        await Country.findOrCreate({
+                             where: {
+                                 name: c.name,
+                                 id: c.alpha3Code,
+                                 image: c.flag,
+                                 continente: c.region,
+                                 capital: c.capital,
+                                 subregion: c.subregion,
+                                 area: c.area,
+                                 poblacion: c.population
+                             }
+                         })
+                    });
+                
+                    
+                    
+                // }
+                return res.json(await Country.findAll({include: Actividad}))
+                
+                //Country.findAll().then(c => res.json(c)) //REPASAR ESTA LINEA
+                
+    } catch (error) {
+        console.log(error)
+    }        
         }
        
 }
