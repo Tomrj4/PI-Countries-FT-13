@@ -3,22 +3,17 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('actividad', {
-    // id: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   primaryKey: true
-    // },
-    nombre: {
+  sequelize.define('activity', {
+    name: {
       type: DataTypes.STRING
     },
-    dificultad: {
-      type: DataTypes.NUMERIC
+    difficulty: {
+      type: DataTypes.INTEGER
     },
-    duracion: {
-      type: DataTypes.STRING
+    duration: {
+      type: DataTypes.INTEGER
     },
-    temporada: {
+    season: {
       type: DataTypes.STRING
     }
   });

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+
+.cardForm{
+background-color: rgba(72, 191, 209, 0.374);
+border-radius: 20px;
+width: 30rem;
+height: 27rem;
+align-items: center;
+justify-content: center;
+}
+.conteinerForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.InputConteiner{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+   justify-content: center;
+    align-items: center;
+    margin:auto;    
+}
+.DivMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    color: rgb(56, 56, 56);
+}
+.Input {
+    background-color: rgba(255, 255, 255, 0.864);
+    outline: none;
+    border:solid 1px rgb(123, 123, 123);
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    color: rgb(56, 56, 56);
+   padding: 3px;
+   border-radius: 6px;
+}
+.Input:focus{
+    border:solid 1.8px rgb(28, 103, 194);
+
+}
+.title{
+    font-family: 'Lato', sans-serif;
+}
+.submitButtom{
+    border:solid 1.5px white;
+    background-color: rgb(72, 191, 209);
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.submitButtom:hover{
+    background-color: white;
+    color: rgb(72, 191, 209);
+    border-color: rgb(72, 191, 209);
+    transition: 500ms;
+}
+.selector{
+    width: 15rem;
+    height: 6.5rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    color: rgb(56, 56, 56);
+    padding: 3px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.selectorContainer{
+    display: flex;
+    align-items: center;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    color: rgb(56, 56, 56);
+}
+.div1{
+    
+}

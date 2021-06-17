@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+body {
+    background-image:url("../../papers.co-vk53-android-lollipop-material-design-white-pastel-pattern-29-wallpaper.jpg");
+
+  
+}
+.landing{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(40, 153, 155, 0.265);
+    margin-top: 10rem;
+    border-radius: 8px;
+    width:80vmin;
+    height: 55vmin;
+    justify-content:flex-start;
+    align-items: center;
+}
+.Title{
+    color: rgb(233, 99, 128);
+    font-family: 'Acme', sans-serif;
+    font-size: 60px;
+    text-shadow:2px 2px 6px rgb(79, 79, 79);
+}
+.landingContainer{
+    display: flex;
+    justify-content:center;
+    margin-top: -3rem;
+
+}
+.button{
+    width: 9rem;
+    height: 4rem;
+    border-radius: 15px;
+    background-color:rgb(233, 99, 128);
+    border: solid 1px white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 18px;
+    outline: none;
+    color: white;
+}
+.button:hover{
+    color:rgb(233, 99, 128);
+    border: solid 2px rgb(233, 99, 128);
+    background-color: white; 
+}
+
+.link{
+    outline: none;
+}
+.link:visited{
+    outline: none;
+    color: black;
+}

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.CardDetail{
+    background-color: rgba(247, 247, 247, 0.299) ;
+    width: 40rem;
+    height: 15rem;
+    display: flex;
+    border-radius: 14px;
+    flex-direction: row;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 2rem, 2rem;
+    padding: 1.5rem 1.5rem;
+    align-items: center;
+    box-shadow: 8px 6px 8px rgb(103, 103, 103);
+}
+.img{
+    max-width: 350px;
+    max-height: 250px;
+    border-radius: 14px;
+}
+.containerDetail {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  
+    justify-content:flex-start;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-left: 10rem
+}
+.textContainer{
+    margin: auto;
+    font-family: 'Oswald', sans-serif;
+}
+
+.containerActivities{
+    display: flex;
+   
+    margin: auto;
+  
+    justify-content:flex-end;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-left: 3rem;
+    flex-wrap: wrap;
+    
+}
+.activities{
+    background-color: rgba(247, 247, 247, 0.163) ;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: #000;
+    margin: 2rem, 2rem;
+    padding: 1.5rem 1.5rem;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+}
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
