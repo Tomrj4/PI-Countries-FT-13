@@ -86,7 +86,7 @@ function Form() {
                                <option>5Hs</option>
                                <option>6Hs</option>
                                </select>
-                                {/* <input className={styles.Input} type="number" name="duration" value={formValue.duration} onChange={handleChange} /> */}
+                                
                             </div><br></br>
                             <div>
                                <label className={styles.label}> Difficulty: </label>
@@ -98,7 +98,7 @@ function Form() {
                                    <option>4-hard</option>
                                    <option>5-very hard</option>
                                </select>
-                                {/* <input className={styles.Input} type="number" name="difficulty" value={formValue.difficulty} onChange={handleChange} /> */}
+                               
                             </div><br></br>
                             <div>
                                <label className={styles.label}> Season: </label>
@@ -109,7 +109,7 @@ function Form() {
                                    <option> Winter </option>
                                    <option> Spring </option>
                                </select>
-                                {/* <input className={styles.Input} type="text" name="season" value={formValue.season} onChange={handleChange} /><br></br> */}
+                               
                             </div><br></br>
                             <button className={styles.submitButtom} type="submit">
                                 Save

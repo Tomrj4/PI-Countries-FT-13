@@ -15,10 +15,6 @@ function Home() {
   useEffect(() => {
     dispatch(getCountries())
   }, [])
-
-
-  console.log(countries)
-
   return (
     <div className="Home">
       {
@@ -30,7 +26,6 @@ function Home() {
           </div>
           : <div>
              <h1> Loading... </h1>  
-             <img src="../../loading.gif" />
              </div>
 
       }

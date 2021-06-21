@@ -46,10 +46,10 @@ function Card() {
         }
     }, [Order])
 
-    const handleChangeContinent = (event) => {
-     
+    const handleChange = (event) => {
+
         let f = []
-        if(event.target.value === '---') return setFilter([])
+        if (event.target.value === '---') return setFilter([])
         if (event.target.value === 'Americas' || event.target.value === 'Europe' || event.target.value === 'Asia' || event.target.value === 'Africa' || event.target.value === 'Oceania') {
             f = countries.filter((c) => c.continent === event.target.value)
             return setFilter(f)
@@ -69,18 +69,18 @@ function Card() {
                     <option value='Asc'> + Population </option>
                     <option value='Desc'> - Population</option>
                 </select>
-                <select onChange={handleChangeContinent}>
-                    <option value= '---'> --- </option>
+                <select onChange={handleChange}>
+                    <option value='---'> --- </option>
                     <option value='Americas'> Americas </option>
                     <option value='Europe'> Europe </option>
                     <option value='Africa'> Africa </option>
                     <option value='Asia'> Asia </option>
                     <option value='Oceania'> Oceania </option>
                 </select>
-                <select onChange={handleChangeContinent}>
+                <select onChange={handleChange}>
                     <option value='---'> --- </option>
                     {
-                       activities && activities.length > 0 ? activities.map((c) => {
+                        activities && activities.length > 0 ? activities.map((c) => {
                             return (
 
                                 <option value={c.name}>{c.name}</option>
@@ -91,14 +91,14 @@ function Card() {
             </div>
 
             <div className={styles.cardButtons}>
-            
-                    <div className={styles.buttonsUpCont}>
+
+                <div className={styles.buttonsUpCont}>
                     <div className={styles.buttonsUp}>
                         <button onClick={prevPage} className={styles.buttonPrev1}> <GrPrevious></GrPrevious> </button>
                         <button onClick={nextPage} className={styles.buttonNext1}><GrNext></GrNext> </button>
                     </div>
                 </div>
-              
+
                 <div className={styles.mainCard}>
                     {countriesFiltered.length > 0 ? countriesFiltered.slice(page, page + 10).map((c) => {
                         return (
