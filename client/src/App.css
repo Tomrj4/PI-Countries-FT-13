@@ -44,8 +44,8 @@ flex-grow: 1;
    color: black;
 }
 .button:hover{
-  
- 
+  transform: scale(1.5);
+ transition: 150ms;
 }
 .buttonHome{
 margin-top: 0.35rem;
@@ -60,6 +60,8 @@ margin-top: 0.35rem;
    margin-right: 4rem;
 }
 .buttonHome:hover{
+  transform: scale(1.5);
+  transition: 150ms;
 }
 
  .App {

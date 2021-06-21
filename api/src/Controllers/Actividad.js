@@ -1,4 +1,3 @@
-const axios = require('axios').default
 const { Activity, Country } = require('../db')
 
 
@@ -11,8 +10,7 @@ return res.json(await Activity.findAll())
 
 async function addActivity(req, res) {
     const { Countries, name, difficulty, duration, season } = req.body;
-    if (!req.body) return res.Status(500)
-    
+    if(!req.body) return res.status(500)
         const createActivity = await Activity.findOrCreate({
             where: {
                 name: name,
@@ -33,7 +31,6 @@ async function addActivity(req, res) {
         });
         
         return res.json("Activity Created succesfully")
-   
 }
 
 

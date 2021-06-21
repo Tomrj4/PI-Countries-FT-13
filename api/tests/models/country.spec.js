@@ -1,5 +1,6 @@
-const { Country, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+const { Country, conn, Activity } = require('../../src/db.js');
+const { expect, should } = require('chai');
+
 
 describe('Country model', () => {
   before(() => conn.authenticate()
@@ -16,7 +17,7 @@ describe('Country model', () => {
       });
       it('should work when its a valid name', () => {
         Country.create({ name: 'Argentina' });
-      });
+      })
     });
   });
 });

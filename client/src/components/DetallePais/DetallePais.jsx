@@ -16,34 +16,41 @@ function Pais(props) {
             <div className={styles.containerDetail}>
 
                 <div className={styles.CardDetail}>
-                    <img className={styles.img} src={Country.image} alt="Country"/>
+                    {Country ?
+                        <>
+                            <img className={styles.img} src={Country.image} alt="Country" />
 
-                    <div className={styles.textContainer}>
+                            <div className={styles.textContainer}>
 
-                        <p>Nombre: {Country.name}</p>
-                        <p>Continente: {Country.continent}</p>
-                        <p>Capital: {Country.capital}</p>
-                        <p>Poblation: {Country.population}</p>
-                        <p>Area: {Country.area}km²</p>
-                        <p>Subregion: {Country.subregion}</p>
+                                <p>Name: {Country.name}</p>
+                                <p>Continent: {Country.continent}</p>
+                                <p>Capital: {Country.capital}</p>
+                                <p>Population: {Country.population}</p>
+                                <p>Area: {Country.area}km²</p>
+                                <p>Subregion: {Country.subregion}</p>
 
 
 
-                    </div>
-
+                            </div>
+                        </>
+                        : null
+                    }
                 </div>
             </div>
             <div className={styles.containerActivities}>
-
+                {
+                   Country && Country.activities&&  Country.activities.length > 0 ?
+                        <h3> Activities </h3> : null
+                }
                 {
 
-                    Country.activities ? Country.activities.map((c) => {
+                    Country && Country.activities ? Country.activities.map((c) => {
                         return (
                             <div className={styles.activities}>
-                                <p> Nombre: {c.name} </p>
-                                <p> Dificultad: {c.difficulty} </p>
-                                <p> Duracion: {c.duration} </p>
-                                <p> Temporada: {c.season} </p>
+                                <p> Name: {c.name} </p>
+                                <p> Difficulty: {c.difficulty} </p>
+                                <p> Duration: {c.duration} </p>
+                                <p> Season: {c.season} </p>
                             </div>
                         )
                     }) : <br></br>

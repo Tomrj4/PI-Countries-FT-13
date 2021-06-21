@@ -30,8 +30,8 @@ async function getAllCountries(req, res) {
                     }
                 });
             });
-
-            return res.json(await Country.findAll({ include: Activity }))
+            let result = await Country.findAll({ include: Activity })
+            return res.status(200).json(result)
         } catch (error) {
             console.log(error)
         }

@@ -21,12 +21,19 @@ function Home() {
 
   return (
     <div className="Home">
-     
-      <div>
-        <div class={styles.card}>
-          <Card />
-        </div>
-      </div>
+      {
+        countries.length > 0 ?
+          <div>
+            <div class={styles.card}>
+              <Card />
+            </div>
+          </div>
+          : <div>
+             <h1> Loading... </h1>  
+             <img src="../../loading.gif" />
+             </div>
+
+      }
 
     </div>
   );
