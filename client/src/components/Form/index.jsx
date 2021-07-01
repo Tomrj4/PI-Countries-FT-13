@@ -1,7 +1,7 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { getCountries } from "../../actions"
+import { getActivities, getCountries } from "../../actions"
 import styles from "./Form.module.css"
 const axios = require("axios").default
 
@@ -18,10 +18,12 @@ function Form() {
 
     const dispatch = useDispatch()
     useEffect(() => {
+        dispatch(getActivities())
         dispatch(getCountries())
     }, [dispatch])
 
     const countries = useSelector(state => state.countries)
+    const activities = useSelector(state => state.activities)
 
 
 
@@ -35,9 +37,11 @@ function Form() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (formValue.name === "" || formValue.duration === "" || formValue.difficulty === "" || formValue.season === "") {
+        if (formValue.name === "" || formValue.duration === "---" || formValue.difficulty === "---" || formValue.season === "---" || selectedCountries.length === 0) {
             return alert("You must complete all the fields")
-        } else {
+        } else if (activities.find((el) => el.name === formValue.name)) {
+            return alert("An activity with that name already exists");
+          } else {
 
             await axios.post('http://localhost:3001/activity', {
                 Countries: selectedCountries,
@@ -49,7 +53,7 @@ function Form() {
         }
 
     }
-    
+
     return (
         <div className={styles.conteinerForm}>
             <div className={styles.cardForm}>
@@ -60,7 +64,7 @@ function Form() {
                         <div className={styles.selectorContainer}>
 
                             <label> Country: </label>
-                           
+
                             <select className={styles.selector} multiple={true} name="countries" value={selectedCountries} onChange={handleChange}>
                                 {
                                     countries.map((c) => (
@@ -76,40 +80,40 @@ function Form() {
                                 <input className={styles.Input} type="text" name="name" value={formValue.name} onChange={handleChange} />
                             </div><br></br>
                             <div>
-                               <label className={styles.label}> Duration: </label>
-                               <select className={styles.Input} name="duration" value={formValue.duration} onChange={handleChange} >
-                               <option>---</option>
-                               <option>1Hs</option>
-                               <option>2Hs</option>
-                               <option>3Hs</option>
-                               <option>4Hs</option>
-                               <option>5Hs</option>
-                               <option>6Hs</option>
-                               </select>
-                                
+                                <label className={styles.label}> Duration: </label>
+                                <select className={styles.Input} name="duration" onChange={handleChange} >
+                                    <option >---</option>
+                                    <option>1Hs</option>
+                                    <option>2Hs</option>
+                                    <option>3Hs</option>
+                                    <option>4Hs</option>
+                                    <option>5Hs</option>
+                                    <option>6Hs</option>
+                                </select>
+
                             </div><br></br>
                             <div>
-                               <label className={styles.label}> Difficulty: </label>
-                               <select className={styles.Input} type="number" name="difficulty" value={formValue.difficulty} onChange={handleChange}>
-                                   <option>---</option>
-                                   <option>1-very easy</option>
-                                   <option>2-easy</option>
-                                   <option>3-meddium</option>
-                                   <option>4-hard</option>
-                                   <option>5-very hard</option>
-                               </select>
-                               
+                                <label className={styles.label}> Difficulty: </label>
+                                <select className={styles.Input} type="number" name="difficulty" onChange={handleChange}>
+                                    <option>---</option>
+                                    <option>1-very easy</option>
+                                    <option>2-easy</option>
+                                    <option>3-meddium</option>
+                                    <option>4-hard</option>
+                                    <option>5-very hard</option>
+                                </select>
+
                             </div><br></br>
                             <div>
-                               <label className={styles.label}> Season: </label>
-                               <select className={styles.Input} type="text" name="season" value={formValue.season} onChange={handleChange}>
-                                   <option> --- </option>
-                                   <option> Summer </option>
-                                   <option> Fall </option>
-                                   <option> Winter </option>
-                                   <option> Spring </option>
-                               </select>
-                               
+                                <label className={styles.label}> Season: </label>
+                                <select className={styles.Input} type="text" name="season" onChange={handleChange}>
+                                    <option>---</option>
+                                    <option> Summer </option>
+                                    <option> Fall </option>
+                                    <option> Winter </option>
+                                    <option> Spring </option>
+                                </select>
+
                             </div><br></br>
                             <button className={styles.submitButtom} type="submit">
                                 Save

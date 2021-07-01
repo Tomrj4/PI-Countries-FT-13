@@ -1,11 +1,10 @@
-import{ COUNTRY_DETAIL, GET_COUNTRIES,GET_BY_NAME,GET_ACTIVITY } from '../actions/index'
+import{ COUNTRY_DETAIL, GET_COUNTRIES,GET_ACTIVITY } from '../actions/index'
 import thunk from 'redux-thunk'
 import {createStore, applyMiddleware} from 'redux'
 
 const initialState = {
     countries: [],
     countryDetail: {},
-    countryByName: {},
     activities:[]
 }
 
@@ -27,12 +26,6 @@ function reducer(state= initialState, action ) {
             return {
                 ...state,
                 countryDetail: action.payload
-            }
-        }
-        case GET_BY_NAME : {
-            return {
-                ...state,
-                countryByName:state.countryByName.concat(action.payload)
             }
         }
         default :{

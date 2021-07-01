@@ -37,11 +37,12 @@ function Pais(props) {
                     }
                 </div>
             </div>
+            {
+                Country && Country.activities && Country.activities.length > 0 ?
+                    <h3> Activities </h3> : null
+            }
+
             <div className={styles.containerActivities}>
-                {
-                   Country && Country.activities&&  Country.activities.length > 0 ?
-                        <h3> Activities </h3> : null
-                }
                 {
 
                     Country && Country.activities ? Country.activities.map((c) => {

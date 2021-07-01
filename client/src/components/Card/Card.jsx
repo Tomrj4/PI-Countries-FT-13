@@ -27,37 +27,44 @@ function Card() {
     const AZ = (a, b) => { return (a.name > b.name ? 1 : -1) }
     const ZA = (a, b) => { return (b.name > a.name ? 1 : -1) }
 
-    const Asc = (a, b) => { return b.population - a.population }
-    const Desc = (a, b) => { return a.population - b.population }
+    const Asc = (a, b) => { return b.population- a.population}
+    const Desc = (a, b) => { return a.population- b.population}
 
     const handleOrder = (event) => {
         setOrder(event.target.value)
     }
 
-    let countriesFiltered = Filter.length > 0 ? Filter : countries
+    let countriesFiltered = Filter && Filter.length > 0 ? Filter : countries
     useEffect(() => {
         switch (Order) {
-            case 'O': return setFilter(countries)
-            case 'AZ': return setFilter([...countriesFiltered].sort(AZ))
-            case 'ZA': return setFilter([...countriesFiltered].sort(ZA))
-            case 'Asc': return setFilter([...countriesFiltered].sort(Asc))
-            case 'Desc': return setFilter([...countriesFiltered].sort(Desc))
+            case 'O': setPage(0); return setFilter(countries)
+            case 'AZ': setPage(0); return setFilter([...countriesFiltered].sort(AZ))
+            case 'ZA': setPage(0); return setFilter([...countriesFiltered].sort(ZA))
+            case 'Asc': setPage(0); return setFilter([...countriesFiltered].sort(Asc))
+            case 'Desc': setPage(0); return setFilter([...countriesFiltered].sort(Desc))
             default: return countriesFiltered
         }
     }, [Order])
 
     const handleChange = (event) => {
-
+        setPage(0)
         let f = []
         if (event.target.value === '---') return setFilter([])
         if (event.target.value === 'Americas' || event.target.value === 'Europe' || event.target.value === 'Asia' || event.target.value === 'Africa' || event.target.value === 'Oceania') {
             f = countries.filter((c) => c.continent === event.target.value)
             return setFilter(f)
         } else {
-            f = countries.filter(x => x.activities[0] !== undefined && x.activities[0].name === event.target.value)
-            return setFilter(f)
+          let names= []
+          countries.forEach( country => {
+            let filtered = country.activities.filter(t=> t.name === event.target.value)
+            if(filtered.length!==0){
+                names.push(country)
+                return setFilter(names)
+            }
+            })
         }
     }
+   
     return (
         <div className={styles.cardContainer} >
             <div className={styles.formConteiner}>
@@ -66,8 +73,8 @@ function Card() {
                     <option value='O'>---</option>
                     <option value='AZ'> A to Z </option>
                     <option value='ZA'> Z to A </option>
-                    <option value='Asc'> + Population </option>
-                    <option value='Desc'> - Population</option>
+                    <option value='Asc'> Population + </option>
+                    <option value='Desc'> Population -</option>
                 </select>
                 <select onChange={handleChange}>
                     <option value='---'> --- </option>

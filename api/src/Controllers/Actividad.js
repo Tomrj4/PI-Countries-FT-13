@@ -21,13 +21,10 @@ async function addActivity(req, res) {
         });
 
         Countries.forEach(async (cName) => {
-            if(Country.findOrCreate({where: {name: cName}})){
-
-                let country = await Country.findOne({
+                let country = await Country.findAll({
                     where: { name: cName}
                 })
                 await createActivity[0].addCountry(country)
-            }
         });
         
         return res.json("Activity Created succesfully")
