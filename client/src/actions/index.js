@@ -6,28 +6,28 @@ export const GET_ACTIVITY= "GET_ACTIVITY"
 
 export function getCountries() {
     return (dispatch) => {
-        axios.get('http://localhost:3001/countries').then(response => {
+        axios.get('/countries').then(response => {
             dispatch({ type: GET_COUNTRIES, payload: response.data })
         })
     }
 }
 export function getActivities(){
     return (dispatch) => {
-        axios.get('http://localhost:3001/activity').then(response => {
+        axios.get('/activity').then(response => {
             dispatch({ type: GET_ACTIVITY, payload: response.data })
         })
     }
 }
 export function CountryDetail(id) {
     return (dispatch) => {
-        axios.get('http://localhost:3001/countries/' + id).then(response => {
+        axios.get('/countries' + id).then(response => {
             dispatch({ type: COUNTRY_DETAIL, payload: response.data })
         })
     }
 }
 export function getByName(name) {
     return (dispatch) => {
-        axios.get('http://localhost:3001/countries?name=' + name).then(response => {
+        axios.get('/countries?name=' + name).then(response => {
             dispatch({ type: GET_COUNTRIES, payload: response.data })
         })
     }
