@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 .NavBar{
   background-color: rgb(22, 168, 175);
 display: flex;
@@ -36,12 +37,13 @@ flex-grow: 1;
 .button{
   margin-right: 1.8rem;
   border-radius: 8px;
-  border:1px solid black;
+  border:1px solid rgb(43, 42, 42);
   transform:scale(1.6);
   background-color:rgb(235, 109, 136);
-  font-family: 'Nunito', sans-serif;
-   font-weight: 600;
-   color: black;
+  font-family: "Oswald", sans-serif;
+   /* font-weight: 600; */
+   color: rgb(43, 42, 42);
+   padding: 2px;
 }
 .button:hover{
   transform: scale(1.5);
@@ -49,14 +51,14 @@ flex-grow: 1;
 }
 .buttonHome{
 margin-top: 0.35rem;
-  border-radius: 10px;
+  border-radius: 12px;
   border:0.6px solid black;
   transform:scale(1.7);
   background-color:rgb(235, 109, 136);
   font-family: 'Nunito', sans-serif;
    font-weight: 600;
    color: black;
-   padding: 2px;
+   padding: 3px;
    margin-right: 4rem;
 }
 .buttonHome:hover{

@@ -19,7 +19,7 @@ justify-content: center;
     flex-direction: column;
     width: 60%;
     height: 100%;
-    margin:auto;
+    margin: auto;
 }
 .DivMain{
     display: flex;
@@ -40,13 +40,20 @@ justify-content: center;
     color: rgb(56, 56, 56);
    padding: 3px;
    border-radius: 6px;
+   margin: 0.5rem;
 }
 .Input:focus{
-    border:solid 1.8px rgb(28, 103, 194);
+    border:solid 1.8px rgb(50, 123, 190);
 
 }
 .title{
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    color: rgb(72, 191, 209);
+    background-color: rgba(255, 255, 255, 0.521);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 12px;
+    
 }
 .submitButtom{
     border:solid 1.5px white;

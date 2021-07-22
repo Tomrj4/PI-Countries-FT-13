@@ -57,7 +57,9 @@ function Form() {
   return (
     <div className={styles.conteinerForm}>
       <div className={styles.cardForm}>
-        <h2 className={styles.title}> Add a new Activity here! </h2>
+        <div className={styles.title}>
+          <h2 > Add a new Activity here! </h2>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className={styles.InputConteiner}>
             <div className={styles.selectorContainer}>
