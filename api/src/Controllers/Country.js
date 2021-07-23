@@ -30,8 +30,8 @@ async function getAllCountries(req, res) {
                     }
                 });
             });
-            let result = await Country.findAll({ include: Activity })
-            return res.status(200).json(result)
+            let result =await Country.findAll({ include: Activity })
+            return res.status(200).json(await result)
         } catch (error) {
             console.log(error)
         }
@@ -40,15 +40,18 @@ async function getAllCountries(req, res) {
 }
 
 async function getById(req, res) {
-    let { id } = req.params
-    const oneCountry = await Country.findOne({
-        where: {
-            id: id
-        },
-        include: [Activity]
-    })
-
-    return res.status(201).json(oneCountry)
+    try {
+        let { id } = req.params
+        const oneCountry = await Country.findOne({
+            where: {
+                id: id
+            },
+            include: [Activity]
+        })
+        return res.status(201).json(oneCountry)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 module.exports = {
