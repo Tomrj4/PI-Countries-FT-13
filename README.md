@@ -6,6 +6,7 @@
   <img height="200" src="./countries.png" />
 </p>
 
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
@@ -23,8 +24,6 @@ La idea general es crear una aplicación en la cual se pueda ver información de
   - Filtrarlos / Ordenarlos
   - Crear actividades turísticas
 
-
-### Únicos Endpoints/Flags que pueden utilizar
 
 #### Tecnologías:
 - [ ] React
