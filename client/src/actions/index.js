@@ -20,7 +20,7 @@ export function getActivities(){
 }
 export function CountryDetail(id) {
     return (dispatch) => {
-        axios.get('/countries' + id).then(response => {
+        axios.get('/countries/' + id).then(response => {
             dispatch({ type: COUNTRY_DETAIL, payload: response.data })
         })
     }
