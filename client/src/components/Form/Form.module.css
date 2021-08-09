@@ -61,7 +61,7 @@
   border-radius: 12px;
 }
 .submitButtom {
-  border: solid 1.5px white;
+  border: solid 1.5px transparent;
   background-color: rgb(72, 191, 209);
   padding: 10px;
   color: white;
@@ -88,4 +88,21 @@
   color: rgb(56, 56, 56);
 }
 .div1 {
+}
+@media only screen and (max-width: 576px){
+  .DivMain div{
+    display: flex;
+    flex-direction: column;
+  }
+  .selectorContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .selector{
+    margin: 0.5rem;
+  }
+  .cardForm{
+    width: 22rem;
+    height: 28rem;
+  }
 }

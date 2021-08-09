@@ -19,8 +19,8 @@ function App() {
           </div>
           <SearchBar />
           <div className="NavBar2">
-            <Link className="link" to='/act'><button className="button"> Create Activity </button></Link>
-            <Link className="link" to='/home'> <AiOutlineHome className="buttonHome"></AiOutlineHome></Link>
+            <Link className="link" to='/act' style={{width:"auto"}}><button className="button"> Create Activity </button></Link>
+            <Link className="link" to='/home' style={{width:"auto"}}> <AiOutlineHome className="buttonHome"></AiOutlineHome></Link>
 
           </div>
         </div>

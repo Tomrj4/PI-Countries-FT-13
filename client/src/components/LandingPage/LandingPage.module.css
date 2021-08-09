@@ -29,11 +29,11 @@ body {
 
 }
 .button{
-    width: 9rem;
-    height: 4rem;
+    width: 9em;
+    height: 4em;
     border-radius: 15px;
     background-color:rgb(233, 99, 128);
-    border: solid 1px white;
+    border: solid 1px transparent;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 18px;
     outline: none;
@@ -51,4 +51,12 @@ body {
 .link:visited{
     outline: none;
     color: black;
+}
+@media only screen and (max-width: 576px){
+    .Title{
+        font-size: 50px;
+    }
+    .button{
+        font-size: 14px;
+    }
 }

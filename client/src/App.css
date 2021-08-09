@@ -31,7 +31,8 @@ flex-grow: 1;
   flex-direction: row-reverse;
  flex-grow: 1;
  align-items: center;
- margin-right:10rem ;
+ /* margin-right:10rem ; */
+  justify-content: space-evenly;
 }
 
 .button{
@@ -69,5 +70,50 @@ margin-top: 0.35rem;
  .App {
   text-align: center;
  
+}
+@media only screen and (min-width:576px) and (max-width: 700px){
+	.NavBar2{
+    font-size: 12px;
+  }
+  .button{
+    font-size: 12px;
+  }
+  .buttonHome{
+    margin-right: 2rem;
+  }
+  .title{
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 576px){
+  .NavBar2{
+    font-size: 12px;
+  }
+  .button{
+    font-size: 12px;
+  }
+	.title{
+    display: none;
+  }
+  .NavBar{
+    height: 5rem;
+  }
+}
+@media only screen and (max-width: 430px){
+  .NavBar2{
+    font-size: 10px;
+  }
+  .button{
+    font-size: 10px;
+  }
+  .buttonHome{
+    margin-right: 2rem;
+  }
+	.title{
+    display: none;
+  }
+  .NavBar{
+    height: 5rem;
+  }
 }
 

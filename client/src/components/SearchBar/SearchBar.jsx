@@ -21,13 +21,16 @@ function SearchBar() {
 
     return (
         <div className={styles.SearchBar}>
+
             <form onSubmit={handleSubmit}>
+            <div style={{display:"flex"}}>
                 <input placeholder="Search..." className={styles.input} type="text" value={input} onChange={handleChange}>
 
                 </input>
                 
                 <button className={styles.buttom} type="submit" value="Search" > <BsSearch  /> </button>
                 
+            </div>
             </form>
         </div>
     )
