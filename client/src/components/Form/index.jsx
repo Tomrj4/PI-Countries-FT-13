@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getActivities, getCountries } from "../../actions";
 import styles from "./Form.module.css";
+import Select from 'react-select'
 const axios = require("axios").default;
 
 function Form() {
@@ -25,11 +26,12 @@ function Form() {
   const activities = useSelector((state) => state.activities);
 
   const handleChange = (event) => {
-    if (event.target.name === "countries") {
-      setSelectedCountries([...selectedCountries, event.target.value]);
-    } else
       setFormValue({ ...formValue, [event.target.name]: event.target.value });
   };
+
+  const handleChangeCountries = (value) => {
+    setSelectedCountries(value)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +55,7 @@ function Form() {
       });
     }
   };
-
+  const options = countries.map(c => ({ label: c.name, value: c.id })); 
   return (
     <div className={styles.conteinerForm}>
       <div className={styles.cardForm}>
@@ -64,8 +66,14 @@ function Form() {
           <div className={styles.InputConteiner}>
             <div className={styles.selectorContainer}>
               <label> Country: </label>
-
-              <select
+              <Select
+              className={styles.selector}
+                options={options}
+                isMulti
+                isSearchable
+                onChange={handleChangeCountries}
+              />
+              {/* <select
                 className={styles.selector}
                 multiple={true}
                 name="countries"
@@ -75,7 +83,7 @@ function Form() {
                 {countries.map((c) => (
                   <option>{c.name}</option>
                 ))}
-              </select>
+              </select> */}
             </div>
             <br></br>
             <div className={styles.DivMain}>

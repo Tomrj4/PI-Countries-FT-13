@@ -5,14 +5,19 @@ const { Op } = require('sequelize')
 async function getAllCountries(req, res) {
     var { name } = req.query;
     if (name !== undefined) {
-        let search = await Country.findAll({
-            where: {
-                name: { [Op.iLike]: `%${name}%` }
-            },
-            include: [Activity]
-        })
-        if (search.length !== 0) return res.status(200).json(await search)
-        return res.sendStatus(404).json({ error: "Pais no encontrado" })
+        try {
+            let search = await Country.findAll({
+                where: {
+                    name: { [Op.iLike]: `%${name}%` }
+                },
+                include: [Activity]
+            })
+            if (search.length !== 0) return res.status(200).json(await search)
+            return res.sendStatus(404).json({ error: "Pais no encontrado" })
+        }
+        catch (error) {
+            console.log(error)
+        }
     } else {
         try {
             const Countries = await axios.get('https://restcountries.eu/rest/v2/all')
@@ -30,8 +35,8 @@ async function getAllCountries(req, res) {
                     }
                 });
             });
-            let result =await Country.findAll({ include: Activity })
-            return res.status(200).json(await result)
+            let result = await Country.findAll({ include: Activity })
+            return res.status(200).json(result)
         } catch (error) {
             console.log(error)
         }

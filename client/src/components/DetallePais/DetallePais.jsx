@@ -10,7 +10,6 @@ function Pais(props) {
         dispatch(CountryDetail(props.match.params.id))
     }, [])
 
-    console.log(Country)
     return (
         <div className={styles.conteiner}>
             <div className={styles.containerDetail}>
